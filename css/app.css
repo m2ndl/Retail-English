@@ -1,41 +1,48 @@
 /* English at the Register — app styles
    Arabic-first (RTL) interface; English target language is set LTR inline. */
 
-/* Palette: receipt paper, aubergine ink and a saffron shelf-tag accent.
+/* Palette: Ocean Ember, copper-forward variation. Deep Current bar and headings on a cool ground,
+   Oceanic Teal for interactive states and progress, Burnished Copper for primary buttons and the
+   current-step highlight, Golden Drift only on dark surfaces.
    In both themes, text pairs meet WCAG AA (4.5:1); brand fills, focus rings and step outlines 3:1. */
 :root {
-  --bg: #f5efe4;         /* receipt paper */
-  --surface: #fffcf6;
-  --surface-2: #eee6d8;
-  --ink: #211a1e;
-  --ink-2: #4d4447;
-  --ink-3: #665c5f;
-  --line: #e3d9ca;
-  --brand: #5e2b5f;      /* aubergine */
-  --brand-strong: #431d45;
+  --bg: #eef4f4;         /* cool ground */
+  --surface: #ffffff;
+  --surface-2: #e3eced;
+  --ink: #0a2f3a;        /* Deep Current: body text and headings */
+  --ink-2: #2d4c55;
+  --ink-3: #4a666e;
+  --line: rgba(10, 47, 58, .13);
+  --brand: #1d6b78;      /* Oceanic Teal: interactive states and progress */
+  --brand-strong: #155560;
   --brand-ink: #ffffff;
-  --brand-soft: #f1e5ee;
-  --brand-text: #5e2b5f; /* brand-coloured text and icons on light surfaces */
-  --tag: #f2b53f;        /* saffron shelf tag: a highlight, always with --tag-ink text */
-  --tag-strong: #f6c766;
-  --tag-ink: #211a1e;
-  --bar: #431d45;        /* app bar */
-  --hero: #431d45;       /* hero cards stay dark in both themes */
-  --amber: #8f4f00;
-  --amber-soft: #fbedd3;
+  --brand-soft: #e0edef;
+  --brand-text: #1d6b78; /* brand-coloured text and icons on light surfaces */
+  --cta: #a35e33;        /* Burnished Copper: primary buttons, always with --cta-ink text */
+  --cta-strong: #8a4c27;
+  --cta-ink: #ffffff;
+  --cta-line: #a35e33;   /* current-step highlight: 3:1 against the page */
+  --tag: #d8975a;        /* Golden Drift: dark surfaces only, always with --tag-ink text */
+  --tag-strong: #e3ac77;
+  --tag-ink: #0a2f3a;
+  --bar: #0a2f3a;        /* app bar */
+  --hero: #0a2f3a;       /* hero cards stay dark in both themes */
+  --amber: #864716;
+  --amber-soft: #f8ecd9;
   --good: #1f7440;
   --good-soft: #e2f1e5;
   --bad: #b3261e;
   --bad-soft: #fbe7e3;
   --blue: #2b5794;       /* the customer's voice */
   --blue-soft: #e6edf7;
-  --track: #e0d6c6;    /* progress bar tracks */
-  --seg-todo: #8d8378; /* outline of steps not done yet: 3:1 against the page */
-  --shadow: 0 1px 2px rgba(33, 26, 30, .06), 0 6px 18px rgba(67, 29, 69, .06);
+  --track: #d5e2e3;    /* progress bar tracks */
+  --seg-todo: #6f8a90; /* outline of steps not done yet: 3:1 against the page */
+  --shadow: 0 1px 2px rgba(10, 47, 58, .06), 0 6px 18px rgba(10, 47, 58, .07);
   --radius: 14px;
   --radius-lg: 20px;
   --f-ar: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif;
-  --f-en: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --f-ar-h: "Alexandria", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, system-ui, sans-serif; /* Arabic headings */
+  --f-en: "Archivo", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   --f-num: "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace; /* prices and receipts only */
   --nav-h: 64px;
   --bar-h: 56px;
@@ -44,60 +51,62 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #151215;
-    --surface: #1e1a1e;
-    --surface-2: #2a2429;
-    --ink: #efe8ea;
-    --ink-2: #c4b9bd;
-    --ink-3: #9b9094;
-    --line: #352e34;
-    --brand: #c7a4c9;
-    --brand-strong: #dcc2dd;
-    --brand-ink: #1d0f1e;
-    --brand-soft: #3a2439;
-    --brand-text: #d4b2d5;
-    --bar: #2a1429;
-    --hero: #3a1a3c;
-    --amber: #efb35a;
-    --amber-soft: #35270f;
+    --bg: #071e25;
+    --surface: #0c2932;
+    --surface-2: #12343e;
+    --ink: #e7f0f1;
+    --ink-2: #bacbce;
+    --ink-3: #8fa8ad;
+    --line: #1f4550;
+    --brand: #6db7c2;
+    --brand-strong: #96ced6;
+    --brand-ink: #04181e;
+    --brand-soft: #133e47;
+    --brand-text: #8dc8d0;
+    --cta-line: #d8975a;
+    --bar: #051920;
+    --hero: #0e3d4a;
+    --amber: #d8975a;
+    --amber-soft: #33261a;
     --good: #79c48e;
     --good-soft: #17301f;
     --bad: #f2918a;
     --bad-soft: #3b1c1a;
     --blue: #9fbdee;
     --blue-soft: #1d2840;
-    --track: #352e34;
-    --seg-todo: #7a6f75;
+    --track: #1f4550;
+    --seg-todo: #6a8790;
     --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 6px 18px rgba(0, 0, 0, .25);
     color-scheme: dark;
   }
 }
 
 :root[data-theme="dark"] {
-  --bg: #151215;
-  --surface: #1e1a1e;
-  --surface-2: #2a2429;
-  --ink: #efe8ea;
-  --ink-2: #c4b9bd;
-  --ink-3: #9b9094;
-  --line: #352e34;
-  --brand: #c7a4c9;
-  --brand-strong: #dcc2dd;
-  --brand-ink: #1d0f1e;
-  --brand-soft: #3a2439;
-  --brand-text: #d4b2d5;
-  --bar: #2a1429;
-  --hero: #3a1a3c;
-  --amber: #efb35a;
-  --amber-soft: #35270f;
+  --bg: #071e25;
+  --surface: #0c2932;
+  --surface-2: #12343e;
+  --ink: #e7f0f1;
+  --ink-2: #bacbce;
+  --ink-3: #8fa8ad;
+  --line: #1f4550;
+  --brand: #6db7c2;
+  --brand-strong: #96ced6;
+  --brand-ink: #04181e;
+  --brand-soft: #133e47;
+  --brand-text: #8dc8d0;
+  --cta-line: #d8975a;
+  --bar: #051920;
+  --hero: #0e3d4a;
+  --amber: #d8975a;
+  --amber-soft: #33261a;
   --good: #79c48e;
   --good-soft: #17301f;
   --bad: #f2918a;
   --bad-soft: #3b1c1a;
   --blue: #9fbdee;
   --blue-soft: #1d2840;
-  --track: #352e34;
-  --seg-todo: #7a6f75;
+  --track: #1f4550;
+  --seg-todo: #6a8790;
   --shadow: 0 1px 2px rgba(0, 0, 0, .35), 0 6px 18px rgba(0, 0, 0, .25);
   color-scheme: dark;
 }
@@ -123,6 +132,7 @@ button { cursor: pointer; }
 img, svg { display: block; }
 [hidden] { display: none !important; }
 
+h1, h2, h3 { font-family: var(--f-ar-h); }
 .en, [lang="en"] { font-family: var(--f-en); }
 .num { font-family: var(--f-en); font-variant-numeric: tabular-nums; }
 .muted { color: var(--ink-3); }
@@ -254,7 +264,7 @@ p { margin: 0; }
 .pill.good { background: var(--good-soft); color: var(--good); }
 .pill.bad { background: var(--bad-soft); color: var(--bad); }
 .pill.blue { background: var(--blue-soft); color: var(--blue); }
-.pill.tag { background: var(--tag); color: var(--tag-ink); }
+.pill.tag { background: var(--cta); color: var(--cta-ink); }
 a.pill { text-decoration: none; }
 .stack > .pill { align-self: flex-start; } /* a pill hugs its text */
 .stack.center > .pill { align-self: center; }
@@ -266,11 +276,11 @@ button.pill { border: 0; cursor: pointer; font: inherit; }
   min-height: 46px; padding: 10px 18px;
   border-radius: 12px; border: 1.5px solid transparent;
   font-weight: 700; font-size: .98rem; text-decoration: none;
-  background: var(--brand); color: var(--brand-ink);
+  background: var(--cta); color: var(--cta-ink);
   transition: transform .08s ease, background .15s ease;
 }
 .btn:active { transform: scale(.98); }
-@media (hover: hover) { .btn:hover { background: var(--brand-strong); } }
+@media (hover: hover) { .btn:hover { background: var(--cta-strong); } }
 .btn svg { width: 20px; height: 20px; flex: none; }
 .btn.block { width: 100%; }
 .btn.ghost { background: var(--surface); color: var(--ink); border-color: var(--line); }
@@ -385,7 +395,7 @@ mark { background: var(--amber-soft); color: var(--amber); border-radius: 4px; p
   border-radius: 50%; border: 0;
   background: var(--brand); color: var(--brand-ink);
   display: grid; place-items: center;
-  box-shadow: 0 6px 18px rgba(94, 43, 95, .3);
+  box-shadow: 0 6px 18px rgba(29, 107, 120, .3);
 }
 .big-play svg { width: 34px; height: 34px; }
 .big-play.playing { animation: pulse 1s ease-in-out infinite; }
@@ -541,7 +551,7 @@ textarea.input { min-height: 96px; resize: vertical; }
 /* ---------- Sheet (quick phrases) ---------- */
 .sheet-backdrop {
   position: fixed; inset: 0; z-index: 40;
-  background: rgba(21, 12, 20, .5);
+  background: rgba(4, 24, 30, .5);
   display: flex; align-items: flex-end; justify-content: center;
 }
 .sheet {
@@ -603,8 +613,8 @@ table.rubric td, table.rubric th { min-width: 7rem; }
 
 /* ---------- Certificate (print) ---------- */
 .certificate {
-  background: #fffcf6; color: #211a1e;
-  border: 6px double #5e2b5f; border-radius: 6px;
+  background: #ffffff; color: #0a2f3a;
+  border: 6px double #a35e33; border-radius: 6px;
   padding: 28px 20px; text-align: center;
 }
 .certificate h2 { font-size: 1.4rem; margin: 6px 0; }
@@ -631,8 +641,8 @@ table.rubric td, table.rubric th { min-width: 7rem; }
 .step-progress { display: flex; align-items: center; gap: 5px; min-height: 12px; }
 .step-progress span { flex: 1; height: 8px; border-radius: 999px; box-shadow: inset 0 0 0 1.5px var(--seg-todo); }
 .step-progress span.done { background: var(--brand); box-shadow: none; }
-.step-progress span.now { height: 12px; box-shadow: inset 0 0 0 2.5px var(--brand-strong); }
-.step-progress span.now.done { background: var(--brand-strong); box-shadow: none; }
+.step-progress span.now { height: 12px; box-shadow: inset 0 0 0 2.5px var(--cta-line); }
+.step-progress span.now.done { background: var(--cta-line); box-shadow: none; }
 .order-list { margin: 0; padding-inline-start: 1.4em; display: flex; flex-direction: column; gap: 8px; }
 .order-list:empty { display: none; }
 .order-list li { padding: 8px 12px; border-radius: 12px; background: var(--good-soft); }
@@ -697,8 +707,8 @@ html.lesson .toast { bottom: calc(88px + env(safe-area-inset-bottom, 0px)); }
 
 /* Home: the learner's name, asked once in the welcome card. */
 .hero-name { display: flex; gap: 8px; align-items: stretch; }
-.hero-name .input { flex: 1; min-width: 0; background: #fffcf6; color: #211a1e; border-color: transparent; }
-.hero-name .input::placeholder { color: #665c5f; }
+.hero-name .input { flex: 1; min-width: 0; background: #ffffff; color: #0a2f3a; border-color: transparent; }
+.hero-name .input::placeholder { color: #4a666e; }
 .btn.on-hero { flex: none; background: transparent; color: #fff; border-color: rgba(255, 255, 255, .75); }
 @media (hover: hover) { .btn.on-hero:hover { background: rgba(255, 255, 255, .12); } }
 .hero .hero-sub { margin-top: -4px; color: rgba(255, 255, 255, .88); }
